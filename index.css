@@ -163,7 +163,7 @@ a {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 40px 20px;
+    padding: 40px 25px;
     height: auto;
     min-height: 100vh;
     gap: 30px;
@@ -215,7 +215,7 @@ a {
 /* Extra Small Devices */
 @media (max-width: 400px) {
   .home-image img {
-    max-width: 250px;
+    max-width: 350px;
   }
   
   .btn-primary,
