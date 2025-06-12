@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Menu with K2D Font</title>
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="index.css" />
+
+ <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=K2D:wght@200;300;400;500;600;700&display=swap');
+    html, body {
+      scroll-behavior: smooth;
+      font-family: 'K2D', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    /* Mobile menu button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #2057FF;
+      font-size: 24px;
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    /* Menu container */
+    .menu-container {
+      background-color: white;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      text-align: right;
+      z-index: 1000;
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+    }
+
+    a.menu-link {
+      display: inline-block;
+      color: #878B98;
+      text-align: center;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin: 6px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      font-family: 'K2D', sans-serif;
+    }
+
+    a.menu-link:hover {
+      background-color: #D6E4FF;
+      color: #2057FF;
+    }
+
+    a.menu-link.active {
+      color: #2057FF;
+      font-weight: bold;
+    }
+
+    /* Special styling for "Contact me" menu item */
+    a.menu-link.contact-me {
+      margin-right: 20px;
+      background-color: #2057FF;
+      color: white !important;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+
+    a.menu-link.contact-me:hover {
+      background-color: #154bbf;
+      color: white !important;
+    }
+
+    a.menu-link.contact-me.active {
+      background-color: #2057FF;
+      color: white !important;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .menu-container {
+        text-align: center;
+        padding: 70px 20px 20px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      }
+      
+      .menu-container.open {
+        right: 0;
+      }
+      
+      a.menu-link {
+        display: block;
+        margin: 10px 0;
+        text-align: left;
+      }
+      
+      a.menu-link.contact-me {
+        margin-right: 0;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-container {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body style="background-color: white;">
+
+  <!-- Mobile menu toggle button -->
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Menu Bar -->
+  <div class="menu-container" id="menuContainer">
+    <a href="#home" class="menu-link active">Home</a>
+    <a href="#about_me" class="menu-link">About me</a>
+    <a href="#skills" class="menu-link">Skills</a>
+    <a href="#projects" class="menu-link">Projects</a>
+    <a href="#contact_me" class="menu-link contact-me">Contact me</a>
+  </div>
+
+ <script>
+    // Use IIFE to avoid global scope pollution
+    (function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const menuContainer = document.getElementById('menuContainer');
+      const menuLinks = document.querySelectorAll('.menu-link');
+      
+      menuToggle.addEventListener('click', () => {
+        menuContainer.classList.toggle('open');
+        
+        // Change icon between bars and times
+        const icon = menuToggle.querySelector('i');
+        if (menuContainer.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close menu when clicking on a link
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            menuContainer.classList.remove('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    })();
+  </script>
+
+<!-- Content Sections -->
+<div id="home" class="home-section">
+  <!-- Left: Text Content -->
+  <div class="home-text">
+    <h1>Hello !</h1>
+    <h1>I'm <span class="highlight-name">MUHAMMED MUBARAK,</span></h1>
+    <h1 class="job-title">FLUTTER &<br>WEB DEVELOPER</h1>
+    <div class="discrip" ><p class="home-description">
+      I Build Sleek, High-Performance apps and websites using Flutter and React—where Clean Code Meets Smart Design. Built to be Fast, Scalable, and User-Centric.
+    </p></div>
+
+    <!-- Buttons -->
+    <div class="home-buttons">
+      <a href="hire_me.html">
+        <button class="btn-primary">
+          Hire me <i class="fas fa-arrow-right"></i>
+        </button>
+      </a>
+
+      <a href="https://wa.me/8111897280" target="_blank">
+        <button class="btn-outline">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right: Image -->
+  <div class="home-image">
+    <img src="assets/mubarak.png" alt="Profile" />
+  </div>
+</div>
+
+
+
+
+
+
+
+    <div id="about_me" class="about-card">
+  <h2 class="about-heading">About Me</h2>
+  <div class="about-container">
+    <div class="about-image">
+      <img src="assets/mubarak.png" alt="Developer Image" />
+    </div>
+   <div class="aboutc1"> <div class="about-content">
+      <p>
+        I’m an experienced Flutter and web developer specializing in building responsive, user-friendly applications for both mobile and web platforms. I work with Flutter, Dart, React, HTML, CSS, and JavaScript to create clean, scalable, and maintainable solutions. I’m also proficient in integrating back-end services using Firebase, Firestore, and REST APIs. My focus is on writing clean code, optimizing performance, and ensuring usability across devices. I continuously improve my skills by staying updated with the latest technologies and best practices. I’m detail-oriented, adaptable, and passionate about turning ideas into real, functional products.
+      </p>
+      
+    </div>
+<button onclick="downloadPDF()" class="download-btn">
+  Download CV
+  <span class="circle-icon">
+    <i class="fas fa-arrow-right"></i>
+  </span>
+</button></div>
+  </div>
+</div>
+
+<script>
+        function downloadPDF() {
+            // Google Drive direct download link (replace FILE_ID)
+            const fileId = '1Vkqfg4LUQLz4WGh9ZMaspb9Y7BgMO4vC';
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            
+            // Create an invisible anchor tag to trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'CV Of Mubarak.pdf'; // Custom filename
+            link.target = '_self'; // Open in new tab (optional)
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+<div id="skills" style="height: 100vh; padding-top: 54.5px; overflow: hidden;">
+    <div style="
+        min-height: 100vh;
+        padding: 25px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    ">
+        <h2 style="
+            margin: 0;
+            text-align: center;
+            color: black;
+            font-size: 32px;
+        ">My Skills</h2><p style="font-size: 16px;font-weight: 200;
+    color: #878B98;
+    margin-top: 15px;
+    margin-bottom: 80px;">Here are the technologies and tools I'm proficient in</p>
+
+        <div style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        ">
+            <!-- HTML Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(255 87 34) 0%, rgb(255 255 255) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">HTML</h3>
+            </div>
+
+            <!-- CSS Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(250 250 250) 0%, rgb(33 150 243) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 0.2s;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">CSS</h3>
+            </div>
+
+            <!-- JavaScript Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(0 0 0) 0%, rgb(255 223 0) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 0.4s;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">JavaScript</h3>
+            </div>
+
+            <!-- Java Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(115 161 251) 0%, rgb(219, 56, 15) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 0.6s;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">Java</h3>
+            </div>
+
+            <!-- React Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(255, 255, 255) 0%, rgb(97, 219, 250) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 0.8s;
+            ">
+                <img src="assets/react.png" alt="React" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">React</h3>
+            </div>
+
+            <!-- Flutter Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(65 196 255) 0%, rgb(0 87 155) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 1s;
+            ">
+                <img src="assets/flutter.png" alt="Flutter" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">Flutter</h3>
+            </div>
+
+            <!-- PHP Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(0 0 0) 0%, rgb(119 123 179) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 1.2s;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968332.png" alt="PHP" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">PHP</h3>
+            </div>
+
+            <!-- Python Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(48 105 152) 0%, rgb(255 212 59) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color:black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 1.4s;
+            ">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">Python</h3>
+            </div>
+
+            <!-- Database Card -->
+            <div style="
+                background: linear-gradient(145deg, rgb(242 146 7) 0%, rgb(0 118 144) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: float 4s ease-in-out infinite;
+                animation-delay: 1.6s;
+            ">
+                <img src="assets/MySQL_logo.svg.png" alt="Database" style="
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+                ">
+                <h3 style="margin: 0 0 10px 0; font-size: 16px;">Database</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+</style>
+
+<script>
+    // Add hover effects to all cards
+    document.querySelectorAll('#skills [style*="backdrop-filter"]').forEach(card => {
+        card.onmouseenter = () => {
+            card.style.animation = 'none';
+            card.style.transform = 'translateY(-15px) scale(1.05)';
+            card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.3)';
+        };
+        card.onmouseleave = () => {
+            const delay = card.style.animationDelay || '0s';
+            card.style.animation = 'float 4s ease-in-out infinite';
+            card.style.animationDelay = delay;
+            card.style.transform = '';
+            card.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
+        };
+    });
+</script>
+ <div id="projects" style="min-height: 100vh; padding: 80px 20px; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 60px;">
+      <h2 style="color: black; font-size: 32px; margin-bottom: 15px;">My Projects</h2>
+      <p style="font-size: 16px;
+    font-weight: 200;
+    color: #878B98;
+    max-width: 600px;
+    margin: 0 auto;">Here are some of my recent works with details about my contributions.</p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+      
+      <!-- Project 1 -->
+      <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <img src="assets/Group 1.png" alt="Project 1" style="width: 100%; height: 200px; object-fit:contain;">
+        <div style="padding: 25px;">
+          <h3 style="    margin: 0px;
+    margin-bottom: 8px;
+    font-size: 20px;">TEDx Farook College</h3>
+          <p style="    color: #666;
+    margin: 0px;
+    margin-bottom: 20px;
+    font-size: 15px;">Front-end Developer</p>
+          <div style="text-align: center; margin: 0px;">
+            <a href="https://tedx.farookcollege.ac.in/index.html" target="_blank" style="display: inline-block; width: 100%; padding: 10px 20px; background: #e6f0ff; color: #2057FF; text-decoration: none; border-radius: 6px; font-weight: 600; box-sizing: border-box;">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact_me" style="width: 100%;/* padding: 30px 0; */background: #f8faff;color: #000;min-height: 100vh;box-sizing: border-box;display: flex;flex-direction: column;">
+  <div style="max-width: 1200px;margin: 0 auto;padding: 0 20px;flex: 1;display: flex;flex-direction: column;justify-content: space-evenly;flex-wrap: wrap;">
+    <h2 style="margin: 0px;text-align: center;/* margin-bottom: 30px; */font-size: 32px;color: black;">Contact Me</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: stretch;">
+      <!-- Contact Form -->
+      <div style="flex: 1; min-width: 300px; max-width: 500px; display: flex;">
+        <form id="contact-form" style="padding: 25px 25px 15px 25px;/* padding-bottom: 0px; */background: white;/* padding: 25px; */border-radius: 12px;box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1);width: 100%;display: flex;flex-direction: column;">
+          <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Send a <span style="color: #2057FF;">Message</span></h3>
+          
+          <div style="margin-bottom: 15px;">
+            <label for="name" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Name</label>
+            <input type="text" id="name" name="name" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+          
+          <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Email</label>
+            <input type="email" id="email" name="email" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+          
+          <div style="margin-bottom: 15px; flex-grow: 1;">
+            <label for="message" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Message</label>
+            <textarea id="message" name="message" required="" style="width: 100%;height: 100%;min-height: 50%;padding: 10px;border: 1px solid #d0e0ff;border-radius: 8px;background: #f5f9ff;font-size: 0.9rem;box-sizing: border-box;resize: none;"></textarea>
+          </div>
+          
+          <button type="submit" style="background: #2057FF;color: white;border: none;padding: 15px;border-radius: 8px;cursor: pointer;font-weight: 600;font-size: 0.9rem;width: 100%;transition: background 0.3s;margin-top: 30px;">
+            Send Message
+          </button>
+          
+          <div id="form-status" style="margin-top: 10px; font-size: 0.85rem;"></div>
+        </form>
+      </div>
+      
+      <!-- Contact Info -->
+      <div style="flex: 1; min-width: 300px; max-width: 500px; display: flex;">
+        <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1); width: 100%; display: flex; flex-direction: column;">
+          <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Let's <span style="color: #2057FF;">Connect</span></h3>
+          <p style="margin-bottom: 20px; color: #555; line-height: 1.5; font-size: 0.9rem;">
+            I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+          </p>
+          
+          <div style="display: flex; flex-direction: column; gap: 15px; flex-grow: 1; justify-content: center;">
+            <div style="display: flex; align-items: center;">
+              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                <i class="fas fa-envelope" style="font-size: 16px; color: #2057FF;"></i>
+              </div>
+              <div style="overflow: hidden;">
+                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Email</h4>
+                <a href="mailto:mubarakmuhammed336@gmail.com" style="color: #555; text-decoration: none; font-size: 0.85rem; word-break: break-all;">mubarakmuhammed336@gmail.com</a>
+              </div>
+            </div>
+            
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                <i class="fab fa-linkedin-in" style="font-size: 16px; color: #2057FF;"></i>
+              </div>
+              <div style="overflow: hidden;">
+                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">LinkedIn</h4>
+                <span style="color: #555; font-size: 0.85rem;">linkedin.com/in/yourprofile</span>
+              </div>
+            </a>
+            
+            <a href="https://github.com/muhammedmubarak007" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                <i class="fab fa-github" style="font-size: 16px; color: #2057FF;"></i>
+              </div>
+              <div style="overflow: hidden;">
+                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">GitHub</h4>
+                <span style="color: #555; font-size: 0.85rem;">github.com/muhammedmubarak007</span>
+              </div>
+            </a>
+            
+            <a href="https://instagram.com/m.n.mubarak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                <i class="fab fa-instagram" style="font-size: 16px; color: #2057FF;"></i>
+              </div>
+              <div style="overflow: hidden;">
+                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Instagram</h4>
+                <span style="color: #555; font-size: 0.85rem;">instagram.com/m.n.mubarak</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright Footer -->
+  <div style="width: 100%;padding: 25px 0;background: #f8faff;text-align: center;border-top: 1px solid #e0e8ff;flex-shrink: 0; margin-top: 25px;">
+    <p style="color: #666; font-size: 0.8rem; margin: 0;">
+      ©2022 Muhammed Mubarak | All Rights Reserved
+    </p>
+  </div>
+</div>
+
+<script>
+  // Initialize EmailJS with your User ID
+  emailjs.init("ui_l8twgzyMPUmrdh"); // Replace with your actual EmailJS user ID
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Change button text to "Sending..."
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    
+    try {
+      // Send email using EmailJS
+      const response = await emailjs.sendForm(
+        'service_mbqxg27',     // Replace with your EmailJS service ID
+        'template_mnvrm5o',    // Replace with your EmailJS template ID
+        '#contact-form'        // Your form selector
+      );
+      
+      if (response.status === 200) {
+        status.innerHTML = '<p style="color: #2057FF;">Thanks for your message! I\'ll get back to you soon.</p>';
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      status.innerHTML = '<p style="color: red;">Oops! There was a problem sending your message. Please try again.</p>';
+    } finally {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    }
+  });
+</script>
+  <script>
+    const menuLinks = document.querySelectorAll('a.menu-link');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        // Remove active from all except contact-me, which stays styled always
+        menuLinks.forEach(l => {
+          if (!l.classList.contains('contact-me')) {
+            l.classList.remove('active');
+          }
+        });
+        if (!this.classList.contains('contact-me')) {
+          this.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

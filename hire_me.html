@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work With Me | Your Portfolio</title>
+    <style>
+        :root {
+            --primary: #2057FF;
+            --primary-light: rgba(32, 87, 255, 0.1);
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #E5E7EB;
+            --gray-dark: #9CA3AF;
+            --success: #10B981;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'K2D', sans-serif;
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .form-header p {
+            color: var(--gray-dark);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray);
+            border-radius: var(--border-radius);
+            font-family: 'K2D';
+            transition: all 0.2s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+        
+        .option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray);
+            background: white;
+            transition: all 0.2s;
+            cursor: pointer;
+            flex: 1 1 calc(50% - 0.75rem);
+            min-width: 120px;
+            position: relative;
+        }
+        
+        .option-item:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+        
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        input[type="radio"]:checked + .option-item {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+        
+        .option-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .budget-container {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .budget-container select {
+            flex: 2;
+        }
+        
+        .currency-select {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-family: "K2D";
+        }
+        
+        .submit-btn:hover {
+            background: #1a4be6;
+            transform: translateY(-1px);
+        }
+        
+        .success-message {
+            display: none;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            border-left: 3px solid var(--success);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .option-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .option-item {
+                flex: 1 1 100%;
+                padding: 0.8rem;
+            }
+            
+            .budget-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="form-header">
+            <h2>Project Inquiry</h2>
+            <p>Let's discuss how I can help with your project</p>
+        </div>
+        
+        <form id="hireForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Project Type</label>
+                <div class="option-group">
+                    <div class="radio-wrapper">
+                        <input type="radio" id="web" name="projectType" value="Web Development" checked>
+                        <label for="web" class="option-item">Web Development</label>
+                    </div>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="mobile" name="projectType" value="Mobile App">
+                        <label for="mobile" class="option-item">Mobile App</label>
+                    </div>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="design" name="projectType" value="UI/UX Design">
+                        <label for="design" class="option-item">UI/UX Design</label>
+                    </div>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="other" name="projectType" value="Other">
+                        <label for="other" class="option-item">Other</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Services Needed</label>
+                <div class="option-group" id="servicesContainer">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="timeline">Project Timeline</label>
+                <select id="timeline" required>
+                    <option value="" disabled selected>Select timeline</option>
+                    <option value="1-4 weeks">1-4 weeks</option>
+                    <option value="1-3 months">1-3 months</option>
+                    <option value="3-6 months">3-6 months</option>
+                    <option value="6+ months">6+ months</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="budget">Project Budget</label>
+                <div class="budget-container">
+                    <select id="currency" class="currency-select">
+                        <option value="INR">INR</option>
+                        <option value="USD">USD</option>
+                    </select>
+                    <select id="budget" required>
+                        <option value="" disabled selected>Select budget range</option>
+                        <option value="Under ₹50,000">Under ₹50,000</option>
+                        <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
+                        <option value="₹1,00,000 - ₹3,00,000">₹1,00,000 - ₹3,00,000</option>
+                        <option value="₹3,00,000+">₹3,00,000+</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Project Details</label>
+                <textarea id="message" rows="5" placeholder="Describe your project goals, requirements, and timeline..." style="resize: none;"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Inquiry via WhatsApp</button>
+            
+            <div class="success-message" id="successMessage">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Thank you! Your inquiry has been sent via WhatsApp.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const hireForm = document.getElementById('hireForm');
+        const successMessage = document.getElementById('successMessage');
+        const servicesContainer = document.getElementById('servicesContainer');
+        const budgetSelect = document.getElementById('budget');
+        const currencySelect = document.getElementById('currency');
+        
+        // Service options by project type
+        const serviceOptions = {
+            web: [
+                { value: "Frontend Development", label: "Frontend" },
+                { value: "Backend Development", label: "Backend" },
+                { value: "Fullstack Development", label: "Fullstack" },
+                { value: "WordPress Development", label: "WordPress" }
+            ],
+            mobile: [
+                { value: "Flutter App", label: "Flutter" },
+                { value: "React Native App", label: "React Native" },
+                { value: "iOS App", label: "iOS" },
+                { value: "Android App", label: "Android" },
+                { value: "Cross-platform App", label: "Cross-platform" }
+            ],
+            design: [
+                { value: "UI Design", label: "UI Design" },
+                { value: "UX Design", label: "UX Design" },
+                { value: "Prototyping", label: "Prototyping" },
+                { value: "Branding", label: "Branding" },
+                { value: "Design System", label: "Design System" }
+            ],
+            other: [
+                { value: "Consulting", label: "Consulting" },
+                { value: "Mentoring", label: "Mentoring" },
+                { value: "Code Review", label: "Code Review" },
+                { value: "Other Service", label: "Other" }
+            ]
+        };
+        
+        // Budget ranges in different currencies
+        const budgetRanges = {
+            INR: [
+                { value: "Under ₹50,000", label: "Under ₹50,000" },
+                { value: "₹50,000 - ₹1,00,000", label: "₹50,000 - ₹1,00,000" },
+                { value: "₹1,00,000 - ₹3,00,000", label: "₹1,00,000 - ₹3,00,000" },
+                { value: "₹3,00,000+", label: "₹3,00,000+" }
+            ],
+            USD: [
+                { value: "Under $1,000", label: "Under $1,000" },
+                { value: "$1,000 - $5,000", label: "$1,000 - $5,000" },
+                { value: "$5,000 - $15,000", label: "$5,000 - $15,000" },
+                { value: "$15,000+", label: "$15,000+" }
+            ]
+        };
+        
+        // Update services based on project type
+        function updateServices(projectType) {
+            servicesContainer.innerHTML = '';
+            const services = serviceOptions[projectType] || serviceOptions.other;
+            
+            services.forEach(service => {
+                const optionItem = document.createElement('label');
+                optionItem.className = 'option-item';
+                optionItem.innerHTML = `
+                    <input type="checkbox" name="services" value="${service.value}">
+                    ${service.label}
+                `;
+                servicesContainer.appendChild(optionItem);
+            });
+        }
+        
+        // Update budget options based on currency
+        function updateBudgetOptions(currency) {
+            budgetSelect.innerHTML = '<option value="" disabled selected>Select budget range</option>';
+            const ranges = budgetRanges[currency] || budgetRanges.INR;
+            
+            ranges.forEach(range => {
+                const option = document.createElement('option');
+                option.value = range.value;
+                option.textContent = range.label;
+                budgetSelect.appendChild(option);
+            });
+        }
+        
+        // Initial setup
+        updateServices('web');
+        
+        // Event listeners
+        document.querySelectorAll('input[name="projectType"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                updateServices(e.target.id); // Use id instead of value
+            });
+        });
+        
+        currencySelect.addEventListener('change', (e) => {
+            updateBudgetOptions(e.target.value);
+        });
+        
+        hireForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                projectType: document.querySelector('input[name="projectType"]:checked').value,
+                services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value),
+                timeline: document.getElementById('timeline').value,
+                budget: document.getElementById('budget').value,
+                currency: document.getElementById('currency').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Format WhatsApp message
+            const whatsappMessage = `
+ *Project Inquiry*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Project Type:* ${formData.projectType}
+*Services Needed:* ${formData.services.join(', ')}
+*Timeline:* ${formData.timeline}
+*Budget:* ${formData.budget}
+
+*Project Details:*
+${formData.message}
+
+            `.trim();
+            
+            // Create WhatsApp link (REPLACE 911234567890 WITH YOUR NUMBER)
+            const phoneNumber = '919544997031'; // With country code, no + or spaces
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_self');
+            
+            // Show success message
+            hireForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Reset form after 5 seconds
+            setTimeout(() => {
+                hireForm.reset();
+                hireForm.style.display = 'block';
+                successMessage.style.display = 'none';
+                updateServices('web');
+                updateBudgetOptions('INR');
+                currencySelect.value = 'INR';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
