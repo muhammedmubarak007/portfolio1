@@ -339,7 +339,7 @@ a {
 
 @media (max-width: 600px) {
       .about-card {
-        height: 135vh;
+       height: 1000px;;
       }
     .about-heading {
     margin-bottom: 50px;}
