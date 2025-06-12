@@ -99,6 +99,9 @@ a {
   height: auto;
 }
 
+.skills-card{
+        height: 100vh;
+  }
 /* Responsive: Desktop */
 @media (max-width: 1024px) {
   .home-section {
@@ -334,5 +337,25 @@ a {
       }
     }
 
+@media (max-width: 600px) {
+      .about-card {
+        height: 135vh;
+      }
+    .about-heading {
+    margin-bottom: 50px;}
+ 
+   .skills-card{
+        height: 100vh;
+  }
+  }
 
-
+  @media (max-width: 579px) {
+   .skills-card{
+        height: 150vh;
+  }
+}
+@media (max-width: 404px) {
+   .skills-card{
+        height: 250vh;
+  }
+}
