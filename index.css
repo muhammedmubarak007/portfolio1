@@ -339,7 +339,7 @@ a {
 
 @media (max-width: 600px) {
       .about-card {
-       height: 1000px;;
+       height: 1045px;;
       }
     .about-heading {
     margin-bottom: 50px;}
@@ -353,6 +353,7 @@ a {
 }
 @media (max-width: 404px) {
    .skills-card{
+            margin-top: 35px;
         height: 1860px;
   }
 }
