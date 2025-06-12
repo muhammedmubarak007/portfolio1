@@ -159,6 +159,7 @@ a {
 
 /* Responsive: Mobile */
 @media (max-width: 600px) {
+  
   .home-section {
     flex-direction: column;
     justify-content: flex-start;
@@ -175,7 +176,7 @@ a {
   }
 
   .home-text h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .job-title {
@@ -184,7 +185,7 @@ a {
   }
 
   .home-description {
-    font-size: 12px;
+    font-size: 14px;
     width: 100%;
   }
 
@@ -209,6 +210,9 @@ a {
     padding: 0;
     bottom: auto;
     right: auto;
+  }
+   .mobile-hide {
+    display: none;
   }
 }
 
