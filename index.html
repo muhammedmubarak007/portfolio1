@@ -227,24 +227,36 @@
 
 
 
-    <div id="about_me" class="about-card">
-  <h2 class="about-heading">About Me</h2>
+   <div id="about_me" class="about-card">
+  <div class="about-header">
+    <h2 class="about-heading">About Me</h2>
+    <p class="about-caption" style="text-align: center;
+    font-size: 16px;
+    font-weight: 200;
+    color: #878B98;
+    margin-top: 10px;
+    margin-bottom: 50px;">Who I am, what I do, and why it matters.</p>
+  </div>
+  
   <div class="about-container">
     <div class="about-image">
-      <img src="assets/mubarak.png" alt="Developer Image" />
+      <img src="assets/mubarak.png" alt="Muhammed Mubarak - Flutter & Web Developer" />
     </div>
-   <div class="aboutc1"> <div class="about-content">
-      <p>
-        I’m an experienced Flutter and web developer specializing in building responsive, user-friendly applications for both mobile and web platforms. I work with Flutter, Dart, React, HTML, CSS, and JavaScript to create clean, scalable, and maintainable solutions. I’m also proficient in integrating back-end services using Firebase, Firestore, and REST APIs. My focus is on writing clean code, optimizing performance, and ensuring usability across devices. I continuously improve my skills by staying updated with the latest technologies and best practices. I’m detail-oriented, adaptable, and passionate about turning ideas into real, functional products.
-      </p>
+    
+    <div class="aboutc1">
+      <div class="about-content">
+        <p>
+          I’m an experienced Flutter and web developer specializing in building responsive, user-friendly applications for both mobile and web platforms. I work with Flutter, Dart, React, HTML, CSS, and JavaScript to create clean, scalable, and maintainable solutions. I’m also proficient in integrating back-end services using Firebase, Firestore, and REST APIs. My focus is on writing clean code, optimizing performance, and ensuring usability across devices. I continuously improve my skills by staying updated with the latest technologies and best practices. I’m detail-oriented, adaptable, and passionate about turning ideas into real, functional products.
+        </p>
+      </div>
       
+      <button onclick="downloadPDF()" class="download-btn">
+        Download CV
+        <span class="circle-icon">
+          <i class="fas fa-arrow-right"></i>
+        </span>
+      </button>
     </div>
-<button onclick="downloadPDF()" class="download-btn">
-  Download CV
-  <span class="circle-icon">
-    <i class="fas fa-arrow-right"></i>
-  </span>
-</button></div>
   </div>
 </div>
 
@@ -265,7 +277,7 @@
         }
     </script>
 
-<div id="skills" class="skills-card" style=" padding-top: 54.5px; overflow: hidden;">
+<div id="skills" class="skills-card" style="overflow: hidden;">
     <div style="
         min-height: 100vh;
         padding: 25px 25px;
@@ -283,7 +295,7 @@
     font-size: 16px;
     font-weight: 200;
     color: #878B98;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 80px;">Here are the technologies and tools I'm proficient in</p>
 
         <div style="
@@ -590,7 +602,7 @@
   <div style="max-width: 1200px; margin: 0 auto;">
     <!-- Header -->
     <div style="text-align: center; margin-bottom: 60px;">
-      <h2 style="color: black; font-size: 32px; margin-bottom: 15px;">My Projects</h2>
+      <h2 style="color: black; font-size: 32px; margin-bottom: 10px;">My Projects</h2>
       <p style="font-size: 16px;
     font-weight: 200;
     color: #878B98;
@@ -621,98 +633,118 @@
   </div>
 </div>
 
-<div id="contact_me" style="width: 100%;/* padding: 30px 0; */background: #f8faff;color: #000;min-height: 100vh;box-sizing: border-box;display: flex;flex-direction: column;">
-  <div style="max-width: 1200px;margin: 0 auto;padding: 0 20px;flex: 1;display: flex;flex-direction: column;justify-content: space-evenly;flex-wrap: wrap;">
-    <h2 style="margin: 0px;text-align: center;/* margin-bottom: 30px; */font-size: 32px;color: black;">Contact Me</h2>
+<div id="contact_me" style="width: 100%;">
+  <div style="width: 100%; background: #f8faff; color: #000; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 25px; flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; flex-wrap: wrap;">
+      
+      <!-- Heading & Caption -->
+      <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="margin-bottom: 10px;
+    margin-top: 50px;
+    font-size: 32px;
+    color: black;">Contact Me</h2>
+        <p style="    margin-bottom: 31px;
+    font-size: 16px;
+    font-weight: 200;
+    color: #878B98;
+    max-width: 600px;
+    margin: 0 auto;
     
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: stretch;">
-      <!-- Contact Form -->
-      <div style="flex: 1; min-width: 300px; max-width: 500px; display: flex;">
-        <form id="contact-form" style="padding: 25px 25px 15px 25px;/* padding-bottom: 0px; */background: white;/* padding: 25px; */border-radius: 12px;box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1);width: 100%;display: flex;flex-direction: column;">
-          <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Send a <span style="color: #2057FF;">Message</span></h3>
-          
-          <div style="margin-bottom: 15px;">
-            <label for="name" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Name</label>
-            <input type="text" id="name" name="name" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
-          </div>
-          
-          <div style="margin-bottom: 15px;">
-            <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Email</label>
-            <input type="email" id="email" name="email" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
-          </div>
-          
-          <div style="margin-bottom: 15px; flex-grow: 1;">
-            <label for="message" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Message</label>
-            <textarea id="message" name="message" required="" style="width: 100%;height: 100%;min-height: 50%;padding: 10px;border: 1px solid #d0e0ff;border-radius: 8px;background: #f5f9ff;font-size: 0.9rem;box-sizing: border-box;resize: none;"></textarea>
-          </div>
-          
-          <button type="submit" style="background: #2057FF;color: white;border: none;padding: 15px;border-radius: 8px;cursor: pointer;font-weight: 600;font-size: 0.9rem;width: 100%;transition: background 0.3s;margin-top: 30px;">
-            Send Message
-          </button>
-          
-          <div id="form-status" style="margin-top: 10px; font-size: 0.85rem;"></div>
-        </form>
+    margin-top: 10px;">Let’s collaborate or chat! Reach out anytime.</p>
       </div>
       
-      <!-- Contact Info -->
-      <div style="flex: 1; min-width: 300px; max-width: 500px; display: flex;">
-        <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1); width: 100%; display: flex; flex-direction: column;">
-          <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Let's <span style="color: #2057FF;">Connect</span></h3>
-          <p style="margin-bottom: 20px; color: #555; line-height: 1.5; font-size: 0.9rem;">
-            I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
-          </p>
-          
-          <div style="display: flex; flex-direction: column; gap: 15px; flex-grow: 1; justify-content: center;">
-            <div style="display: flex; align-items: center;">
-              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
-                <i class="fas fa-envelope" style="font-size: 16px; color: #2057FF;"></i>
-              </div>
-              <div style="overflow: hidden;">
-                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Email</h4>
-                <a href="mailto:mubarakmuhammed336@gmail.com" style="color: #555; text-decoration: none; font-size: 0.85rem; word-break: break-all;">mubarakmuhammed336@gmail.com</a>
-              </div>
+      <!-- Rest of your existing code (form + contact info) -->
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: stretch;">
+        <!-- Contact Form -->
+        <div style=" flex: 1; min-width: 300px; max-width: 500px; display: flex;">
+          <form id="contact-form" style="padding: 25px 25px 15px 25px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1); width: 100%; display: flex; flex-direction: column;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Send a <span style="color: #2057FF;">Message</span></h3>
+            
+            <!-- Form fields (name, email, message) -->
+            <div style="margin-bottom: 15px;">
+              <label for="name" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Name</label>
+              <input type="text" id="name" name="name" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
             </div>
             
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
-                <i class="fab fa-linkedin-in" style="font-size: 16px; color: #2057FF;"></i>
-              </div>
-              <div style="overflow: hidden;">
-                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">LinkedIn</h4>
-                <span style="color: #555; font-size: 0.85rem;">linkedin.com/in/yourprofile</span>
-              </div>
-            </a>
+            <div style="margin-bottom: 15px;">
+              <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Email</label>
+              <input type="email" id="email" name="email" required="" style="width: 100%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box;">
+            </div>
             
-            <a href="https://github.com/muhammedmubarak007" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
-                <i class="fab fa-github" style="font-size: 16px; color: #2057FF;"></i>
-              </div>
-              <div style="overflow: hidden;">
-                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">GitHub</h4>
-                <span style="color: #555; font-size: 0.85rem;">github.com/muhammedmubarak007</span>
-              </div>
-            </a>
+            <div style="margin-bottom: 15px; flex-grow: 1;">
+              <label for="message" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333; font-size: 0.9rem;">Your Message</label>
+              <textarea id="message" name="message" required="" style="width: 100%; height: 100%; min-height: 50%; padding: 10px; border: 1px solid #d0e0ff; border-radius: 8px; background: #f5f9ff; font-size: 0.9rem; box-sizing: border-box; resize: none;"></textarea>
+            </div>
             
-            <a href="https://instagram.com/m.n.mubarak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-              <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
-                <i class="fab fa-instagram" style="font-size: 16px; color: #2057FF;"></i>
+            <button type="submit" style="background: #2057FF; color: white; border: none; padding: 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; width: 100%; transition: background 0.3s; margin-top: 30px;">
+              Send Message
+            </button>
+            
+            <div id="form-status" style="margin-top: 10px; font-size: 0.85rem;"></div>
+          </form>
+        </div>
+        
+        <!-- Contact Info -->
+        <div style="flex: 1; min-width: 300px; max-width: 500px; display: flex;">
+          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(32, 87, 255, 0.1); width: 100%; display: flex; flex-direction: column;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.3rem; color: black;">Let's <span style="color: #2057FF;">Connect</span></h3>
+            <p style="margin-bottom: 20px; color: #555; line-height: 1.5; font-size: 0.9rem;">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            
+            <!-- Contact details (email, LinkedIn, etc.) -->
+            <div style="display: flex; flex-direction: column; gap: 15px; flex-grow: 1; justify-content: center;">
+              <div style="display: flex; align-items: center;">
+                <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                  <i class="fas fa-envelope" style="font-size: 16px; color: #2057FF;"></i>
+                </div>
+                <div style="overflow: hidden;">
+                  <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Email</h4>
+                  <a href="mailto:mubarakmuhammed336@gmail.com" style="color: #555; text-decoration: none; font-size: 0.85rem; word-break: break-all;">mubarakmuhammed336@gmail.com</a>
+                </div>
               </div>
-              <div style="overflow: hidden;">
-                <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Instagram</h4>
-                <span style="color: #555; font-size: 0.85rem;">instagram.com/m.n.mubarak</span>
-              </div>
-            </a>
+              
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                  <i class="fab fa-linkedin-in" style="font-size: 16px; color: #2057FF;"></i>
+                </div>
+                <div style="overflow: hidden;">
+                  <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">LinkedIn</h4>
+                  <span style="color: #555; font-size: 0.85rem;">linkedin.com/in/yourprofile</span>
+                </div>
+              </a>
+              
+              <a href="https://github.com/muhammedmubarak007" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                  <i class="fab fa-github" style="font-size: 16px; color: #2057FF;"></i>
+                </div>
+                <div style="overflow: hidden;">
+                  <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">GitHub</h4>
+                  <span style="color: #555; font-size: 0.85rem;">github.com/muhammedmubarak007</span>
+                </div>
+              </a>
+              
+              <a href="https://instagram.com/m.n.mubarak" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <div style="width: 40px; height: 40px; background: #e6efff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0;">
+                  <i class="fab fa-instagram" style="font-size: 16px; color: #2057FF;"></i>
+                </div>
+                <div style="overflow: hidden;">
+                  <h4 style="margin: 0 0 3px 0; font-size: 0.95rem; color: #333;">Instagram</h4>
+                  <span style="color: #555; font-size: 0.85rem;">instagram.com/m.n.mubarak</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Copyright Footer -->
-  <div style="width: 100%;padding: 25px 0;background: #f8faff;text-align: center;border-top: 1px solid #e0e8ff;flex-shrink: 0; margin-top: 25px;">
-    <p style="color: #666; font-size: 0.8rem; margin: 0;">
-      ©2022 Muhammed Mubarak | All Rights Reserved
-    </p>
+    <!-- Copyright Footer -->
+    <div style="width: 100%; padding: 25px 0; background: #f8faff; text-align: center; border-top: 1px solid #e0e8ff; flex-shrink: 0; margin-top: 25px;">
+      <p style="color: #666; font-size: 0.8rem; margin: 0;">
+        ©2024 Muhammed Mubarak | All Rights Reserved
+      </p>
+    </div>
   </div>
 </div>
 
