@@ -341,6 +341,12 @@ a {
         font-size: 14px;
       }
     }
+    @media (max-width: 768px) {
+
+  .about-card{height: 975px;}
+  
+  }
+
 
 @media (max-width: 600px) {
       .about-card {
@@ -351,15 +357,24 @@ a {
 
   }
 
-  @media (max-width: 579px) {
+  @media (max-width: 589px) {
    .skills-card{padding-top: 25px;
     margin-top: 25px;
         height: 1200px;
   }
 }
-@media (max-width: 404px) {
+@media (max-width: 414px) {
    .skills-card{
             margin-top: 25px;
         height: 1860px;
   }
 }
+
+@media (max-width:1024px){
+  .skills-card{
+        height: auto;
+      
+}
+  .about-card{
+          height: auto;
+        }}
