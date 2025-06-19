@@ -340,10 +340,13 @@ a {
       .about-content {
         font-size: 14px;
       }
+      
     }
     @media (max-width: 768px) {
 
-  .about-card{height: 975px;}
+  .about-card{height: 975px;
+  }
+  
   
   }
 
